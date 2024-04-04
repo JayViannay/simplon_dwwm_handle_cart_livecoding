@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <table>
+        <tr>
+            <th>Id Product</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td>{{item.product.id}}</td>
+            <td>{{item.product.title}}</td>
+            <td>{{item.product.price}}$</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.product.price * item.quantity}}$</td>
+            <td>
+                <a href="{{ path('app_remove_cart', {'id': item.product.id}) }}">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Total Cart : {{total}} $</h1>
+</div>
+{% endblock %}

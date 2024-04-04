@@ -4,15 +4,16 @@
 
 {% block body %}
 <div class="example-wrapper">
-{% for product in products %}
+    {% for product in products %}
     <div>
-        <h2>{{ product.name }}</h2>
+        <h2>{{ product.title }}</h2>
         <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
+        <p>{{ product.price }}$</p>
         <p>
-           {# add to cart button #}
+            <a href="{{ path('app_add_cart', {'id': product.id}) }}">Add to cart</a>
         </p>
     </div>
-{% endfor %}
+    {% endfor %}
+    {{dump(app.session.get('cart', []))}}
 </div>
 {% endblock %}
