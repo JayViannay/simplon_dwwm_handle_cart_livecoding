@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+{% for product in products %}
+    <div>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}</p>
+        <p>
+           {# add to cart button #}
+        </p>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
